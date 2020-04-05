@@ -18,6 +18,14 @@ const Content = (props) => (
   </div>
 );
 
+const Total = (props) => {
+  const total = props.courses.reduce((acc, curr) => {
+    return acc + curr.score;
+  }, 0);
+
+  return <h1>Total Score: {total}</h1>;
+};
+
 const App = () => {
   const courseTitle = `Half stack application development`;
   const courses = [
@@ -38,6 +46,7 @@ const App = () => {
     <div>
       <Header title={courseTitle} />
       <Content courses={courses} />
+      <Total courses={courses} />
     </div>
   );
 };
